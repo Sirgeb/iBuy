@@ -8,9 +8,9 @@ interface Props {
 export const Banner: React.FC<Props> = ({ image }) => {
   return (
     <BannerStyles>
-      <Row  gutter={16}>
+      <Row>
         <Col span={24}>
-          <Card bordered={false}  className="card center" onClick={() => alert("Banner")}>
+          <Card bordered={false} className="card center" onClick={() => alert("Banner")}>
             <img src={image} alt="advert"/>
           </Card>
         </Col>

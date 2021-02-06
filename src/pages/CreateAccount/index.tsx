@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
+import { Container, CreateAccount as CreateAccountForm, Footer } from '../../components';
 
 export const CreateAccount = () => {
   return (
-    <div>
-      Create Account
-    </div>
+    <Container title="iBuy | Create Account">
+      <CreateAccountForm />
+      <Footer />
+    </Container>
   )
 }

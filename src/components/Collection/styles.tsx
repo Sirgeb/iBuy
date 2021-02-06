@@ -8,7 +8,7 @@ const CollectionStyles = styled.div`
     width: 100%;
   }
 
-  .cardImage {
+  .card-image {
     width: 100%; 
     height: 300px;
   }

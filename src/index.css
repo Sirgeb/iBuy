@@ -4,7 +4,7 @@
   --primary-color:  #1890ff;
   --secondary-color: #fff !important;
   --background-color: #f7f7f7;
-  --light-blue: #4BB0C3;
+  --black: #393939;
   --red: #ff4d4f;
 }
 
@@ -15,10 +15,18 @@
 }
 
 ::selection {
-  background: var(--light-blue); 
+  background: var(--primary-color); 
 }
 ::-moz-selection {
-  background: var(--light-blue); 
+  background: var(--primary-color); 
+}
+
+a {
+  color: var(--black);
+}
+
+a:hover {
+  color: var(--primary-color);
 }
 
 body {
@@ -52,14 +60,14 @@ body {
   font-weight: bold;
 }
 
-.titleHolder {
+.title-holder {
   text-align: center;
   position: relative;
   padding: 20px 0 20px;
   margin: 0 0 20px;
 }
 
-.titleHolder:after {
+.title-holder:after {
   transform: translateX(-50%);
   content: '';
   background: var(--primary-color);
@@ -70,7 +78,7 @@ body {
   width: 50px;
 }
 
-.titleHolder h2 {
+.title-holder h2 {
   font-size: 24px;
   margin: 0;
 }

@@ -38,8 +38,10 @@ export const MainHeader = () => {
   return (
     <MainHeaderStyles className="container-fluid">
       <div className="logo">
-        <img src={Logo} alt="iBuy logo" width="48" height="48" />
-        <span>iBuy</span>
+        <Link to="/">
+          <img src={Logo} alt="iBuy logo" width="48" height="48" />
+          <span>iBuy</span>
+        </Link>
       </div>
       <div className="search-bar">
         <Input

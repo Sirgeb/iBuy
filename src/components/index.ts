@@ -6,3 +6,4 @@ export * from './App';
 export * from './Banner';
 export * from './Collection';
 export * from './Footer';
+export * from './Forms';

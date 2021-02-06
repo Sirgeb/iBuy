@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
+import { Container, Login as LoginForm, Footer } from '../../components';
 
 export const Login = () => {
   return (
-    <div>
-      Login
-    </div>
+    <Container title="iBuy | Login">
+      <LoginForm />
+      <Footer />
+    </Container>
   )
 }

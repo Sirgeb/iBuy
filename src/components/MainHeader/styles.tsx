@@ -12,6 +12,10 @@ const MainHeaderStyles = styled.div`
     margin-right: 10px;
   }
 
+  .logo img {
+    margin-bottom: 10px;
+  }
+
   .logo span {
     font-size: 22px;
   }

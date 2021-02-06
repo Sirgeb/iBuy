@@ -14,7 +14,7 @@ export const Collection = () => {
         <Col span={6}>
           <Card
             hoverable
-            cover={<img alt="example" src={Jeans} className="cardImage"/>}
+            cover={<img alt="example" src={Jeans} className="card-image"/>}
             className="dealsCard"
           >
             <Meta title="Europe Street beat" description="www.instagram.com" />
@@ -23,7 +23,7 @@ export const Collection = () => {
         <Col span={6}>
           <Card
             hoverable
-            cover={<img alt="example" src={Kids} className="cardImage"/>}
+            cover={<img alt="example" src={Kids} className="card-image"/>}
             className="dealsCard"
           >
             <Meta title="Europe Street beat" description="www.instagram.com" />
@@ -32,7 +32,7 @@ export const Collection = () => {
         <Col span={6}>
           <Card
             hoverable
-            cover={<img alt="example" src={Look} className="cardImage" />}
+            cover={<img alt="example" src={Look} className="card-image" />}
             className="dealsCard"
           >
             <Meta title="Europe Street beat" description="www.instagram.com" />
@@ -41,7 +41,7 @@ export const Collection = () => {
         <Col span={6}>
           <Card
             hoverable
-            cover={<img alt="example" src={Sunglasses} className="cardImage"/>}
+            cover={<img alt="example" src={Sunglasses} className="card-image"/>}
             className="dealsCard"
           >
             <Meta title="Europe Street beat" description="www.instagram.com" />
