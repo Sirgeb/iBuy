@@ -21,7 +21,7 @@ export const Promo = () => {
         {
           items.map((item, index) => (
             <Col key={index} xs={{ span: 24 }} sm={{ span: 12 }} lg={{ span: 6 }}>
-              <Item image={item} />
+              <Item image={item} showTimer={true}/>
             </Col>
           ))
         }

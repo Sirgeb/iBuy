@@ -28,14 +28,14 @@ const getTimeDays = (time: any) => (time / daySeconds) | 0;
 
 export const Timer = () => {
   const stratTime = Date.now() / 1000; // use UNIX timestamp in seconds
-  const endTime = stratTime + 60; // use UNIX timestamp in seconds
+  const endTime = stratTime + 86400; // use UNIX timestamp in seconds
 
   const remainingTime = endTime - stratTime;
   const days = Math.ceil(remainingTime / daySeconds);
   const daysDuration = days * daySeconds;
 
   return (
-    <TimerStyles>
+      <TimerStyles>
       <CountdownCircleTimer
         {...timerProps}
          //@ts-ignore
@@ -96,7 +96,7 @@ export const Timer = () => {
         }
       </CountdownCircleTimer>
     </TimerStyles>
-  );
+  )
 }
 
 

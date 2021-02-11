@@ -7,9 +7,10 @@ import { Timer } from '..';
 
 type Props = {
   image: string;
+  showTimer: boolean;
 }
 
-export const Item = ({ image }: Props) => {
+export const Item = ({ image, showTimer }: Props) => {
 
   return (
     <ItemStyles>
@@ -34,8 +35,14 @@ export const Item = ({ image }: Props) => {
             </div>
           </div>
           <Divider className="divider" />
-          <div className="count-down"><span>Time Remaining for this offer</span><Timer /></div>
-          <Divider className="divider" />
+          {
+            showTimer && (
+              <>
+                <div className="count-down"><span>Time Remaining for this offer</span><Timer /></div>
+                <Divider className="divider" />
+              </>
+            )
+          }
           <div className="sold">
             <span>Sold</span><Progress percent={30} />
           </div>
