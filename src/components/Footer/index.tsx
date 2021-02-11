@@ -9,7 +9,7 @@ export const Footer = () => {
     <FooterStyles>
       <Header />
       <Row>
-        <Col span={24}>
+        <Col xs={{ span: 24 }}>
           <Card bordered={false} className="center">
             <div>
               © Copyright {new Date().getFullYear()} iBuy  |  Made with <HeartFilled style={{ color: 'red' }} /> by Sirgeb

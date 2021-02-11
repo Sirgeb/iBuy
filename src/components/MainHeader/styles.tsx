@@ -5,6 +5,7 @@ const MainHeaderStyles = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
   
   .logo {
     display: flex;
@@ -45,9 +46,9 @@ const MainHeaderStyles = styled.div`
     display: none
   }
 
-  @media (max-width: 576px) {
+  @media (max-width: 650px) {
     .mobile-visible {
-      display: block;
+      display: flex;
     }
 
     .mobile-hidden {

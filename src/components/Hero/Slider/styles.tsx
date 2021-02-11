@@ -14,6 +14,12 @@ const SliderStyles = styled.div`
     height: 90%;
     cursor: pointer;
   }
+
+  @media (max-width: 650px) {
+    .contentStyle {
+      height: 60%;
+    }
+  }
 `;
 
 export default SliderStyles;

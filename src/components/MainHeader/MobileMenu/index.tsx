@@ -1,5 +1,8 @@
 import React from 'react'
-import { Anchor, Badge, Drawer, Space } from 'antd';
+import { Anchor, Badge, Button, Drawer, Input, Space } from 'antd';
+import { SearchOutlined } from '@ant-design/icons';
+import MobileMenuStyles from './styles';
+
 const { Link } = Anchor;
 
 type Props = {
@@ -9,8 +12,7 @@ type Props = {
 
 const MobileMenu: React.FC<Props> = ({ visible, onClose }) => {
   const [targetOffset, setTargetOffset] = React.useState<number | undefined>(undefined);
-
-  const isLoggedIn = true;
+  const isLoggedIn = false;
 
   React.useEffect(() => {
     setTargetOffset(window.innerHeight / 2);
@@ -19,29 +21,45 @@ const MobileMenu: React.FC<Props> = ({ visible, onClose }) => {
   return (
     <Drawer
       placement="right"
-      closable={false}
+      closable={true}
       onClose={onClose}
       visible={visible}
+      width={300}
     >
-      <Anchor targetOffset={targetOffset}>
-        <div style={{ display: "flex", flexDirection: "row"}}>
-          <Space size="small">
-            <Link href="#cart" title="Cart" />
-            <Badge count={2} showZero />
-          </Space>
+      <MobileMenuStyles>
+        <div className="search-bar-mobile">
+          <Input
+            placeholder="Search products, brands, and categories" 
+            className="input"
+          />
+          <Button type="primary"><SearchOutlined /></Button>
         </div>
-      <Link href="#help" title="Help" />
-      {
-        isLoggedIn ? (
-          <Link href="#API" title="Account">
-            <Link href="#profile" title="Profile" />
-            <Link href="#logout" title="Log out" />
-          </Link>
-        ) : (
-          <Link href="#login" title="Login" />
-        )
-      }
-    </Anchor>
+        <Anchor targetOffset={targetOffset}>
+          <div className="horizontal">
+            <Space size="small">
+              <Link href="#cart" title="Cart" />
+              <Badge count={2} showZero />
+            </Space>
+          </div>
+          <div className="horizontal">
+            <Space size="small">
+              <Link href="#wishlist" title="Wishlist" />
+              <Badge count={0} showZero />
+            </Space>
+          </div>
+          <Link href="#help" title="Help" />
+          {
+            isLoggedIn ? (
+              <Link href="#API" title="Account">
+                <Link href="#profile" title="Profile" />
+                <Link href="#logout" title="Log out" />
+              </Link>
+            ) : (
+              <Link href="login" title="Login" />
+            )
+          }
+        </Anchor>
+      </MobileMenuStyles>
     </Drawer>
   )
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Form, Input, Button, Select, Col, Row } from 'antd';
-import { LockOutlined, UserOutlined, RedEnvelopeOutlined } from '@ant-design/icons';
+import { LockOutlined, RedEnvelopeOutlined } from '@ant-design/icons';
 import LoginStyles from './styles';
 
 const { Option } = Select;

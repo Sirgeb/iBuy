@@ -1,7 +1,7 @@
 import React from 'react';
 import { Input, Button, Menu, Badge } from 'antd';
 import { Link } from 'react-router-dom';
-import { SearchOutlined, UserOutlined, LogoutOutlined, ProfileOutlined, ShoppingCartOutlined, QuestionCircleOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
+import { SearchOutlined, UserOutlined, LogoutOutlined, ProfileOutlined, ShoppingCartOutlined, HeartOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import Logo from '../../assets/logo.svg';
 import MainHeaderStyles from './styles';
 import MobileMenu from './MobileMenu';
@@ -43,7 +43,10 @@ export const MainHeader = () => {
           <span>iBuy</span>
         </Link>
       </div>
-      <div className="search-bar">
+      <div className="mobile-visible">
+        <MobileMenu visible={visible} onClose={onClose} />
+      </div>
+      <div className="search-bar mobile-hidden">
         <Input
           prefix={<SearchOutlined />} 
           placeholder="Search products, brands, and categories" 
@@ -56,21 +59,29 @@ export const MainHeader = () => {
       </div>
       <div className="right-bar mobile-hidden">
         <Menu mode="horizontal">
-          <Menu.Item key="cart" icon={
-            <>
-              <Badge count={2} showZero />
-              <ShoppingCartOutlined />
-            </>
-          }>
+          <Menu.Item key="cart" 
+            icon={
+              <>
+                <Badge count={2} showZero />
+                <ShoppingCartOutlined />
+              </>
+            }
+          >
             Cart
           </Menu.Item>
-          <Menu.Item key="help" icon={<QuestionCircleOutlined />}>
-            Help
+          <Menu.Item key="wishlist" 
+            icon={
+              <>
+                <Badge count={2} showZero />&nbsp;
+                <HeartOutlined />
+              </>
+            }
+          >
+            Wishlist
           </Menu.Item>
           {account}
         </Menu>
       </div>
-      <MobileMenu visible={visible} onClose={onClose} />
     </MainHeaderStyles>
   )
 }
