@@ -5,7 +5,7 @@ const footerStyles = styled.div`
     cursor: pointer;
   }
 
-  .brandImage {
+  .brand-image {
     height: 50px; 
     width: 100px;
   }

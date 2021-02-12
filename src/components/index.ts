@@ -9,3 +9,7 @@ export * from './Footer';
 export * from './Forms';
 export * from './Item';
 export * from './Timer';
+export * from './Items';
+export * from './ItemsPagination';
+export * from './Filters';
+export * from './Title';

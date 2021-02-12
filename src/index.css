@@ -82,3 +82,31 @@ body {
   font-size: 24px;
   margin: 0;
 }
+
+.mt-1 {
+  margin-top: 10px;
+}
+
+.mt-2 {
+  margin-top: 20px;
+}
+
+.mt-16 {
+  margin-top: 16px;
+}
+
+.mt-8 {
+  margin-top: 80px;
+}
+
+.mb-1 {
+  margin-bottom: 10px;
+}
+
+.mb-2 {
+  margin-bottom: 20px;
+}
+
+.mb-16 {
+  margin-bottom: 16px;
+}

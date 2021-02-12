@@ -24,7 +24,7 @@ const Footer = () => {
           brands.map((brand, index) => (
             <Col span={6} key={index}>
               <Card bordered={false}  className="card center" onClick={() => alert(brand.name)}>
-                <img src={brand.image} alt={brand.name} className="brandImage" />
+                <img src={brand.image} alt={brand.name} className="brand-image" />
               </Card>
             </Col>
           ))

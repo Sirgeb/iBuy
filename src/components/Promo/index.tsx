@@ -6,17 +6,17 @@ import two from '../../assets/women/2.jpg';
 import three from '../../assets/women/3.jpg';
 import four from '../../assets/women/4.jpg';
 
-import { Item } from '..';
+import { Item, Title } from '..';
 
 export const Promo = () => {
   const items = [one, two, three, four];
 
   return (
     <PromoStyles className="container-fluid">
-      <div className="title-holder">
-        <h2>Latest Promo Of The Week</h2>
-        <p>Up to 70% off on sales</p>
-      </div>
+      <Title 
+        title="Latest Promo Of The Week"
+        subTitle="Up to 70% off on sales"
+      />
       <Row gutter={[16, 16]}>
         {
           items.map((item, index) => (
