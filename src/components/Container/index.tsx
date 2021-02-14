@@ -1,5 +1,5 @@
 import React from 'react';
-import { MainHeader } from '../';
+import { MainHeader, Footer } from '../';
 import { Layout } from 'antd';
 import ContainerStyles from './styles';
 
@@ -22,6 +22,7 @@ export const Container: React.FC<Props> = ({
         <Content>
           { children }
         </Content>
+        <Footer />
       </ContainerStyles>
     </Layout>
   )

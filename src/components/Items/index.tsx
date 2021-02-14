@@ -1,14 +1,24 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import { Col, List, Row } from 'antd';
-import { Item, Filters } from '..';
+import { Item, Filters, ShopDetails } from '..';
 import one from '../../assets/women/1.jpg';
 
 export const Items = () => {
-  const items = [{},{},{},{},{},{}]
+  const items = [{},{},{},{},{},{}];
+  const location = useLocation();
+  const { pathname } = location;
+
   return (
-    <Row className="container-fluid mt-8">
+    <Row className="container-fluid">
       <Col xs={{ span: 24 }} sm={{ span: 24 }} lg={{ span: 6 }}>
-        <Filters/>
+        {
+          pathname === '/shop' ? (
+            <ShopDetails />
+          ) : (
+            <Filters/>
+          )
+        }
       </Col>
       <Col xs={{ span: 24 }} sm={{ span: 24 }} lg={{ span: 18 }}>
         <List 

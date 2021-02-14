@@ -1,9 +1,10 @@
 import React from 'react';
-import { Container, Items, ItemsPagination, Filters, Footer } from '../../components';
+import { Container, Items, ItemsPagination, BreadCrumb } from '../../components';
 
 export const Products = () => {
   return (
     <Container title="iBuy | Products">
+      <BreadCrumb />
       <Items />
       <ItemsPagination
         total={16}
@@ -11,7 +12,6 @@ export const Products = () => {
         limit={8}
         setPage={() => null}
       />
-      <Footer />
     </Container>
   )
 }

@@ -13,3 +13,5 @@ export * from './Items';
 export * from './ItemsPagination';
 export * from './Filters';
 export * from './Title';
+export * from './BreadCrumb';
+export * from './ShopDetails';

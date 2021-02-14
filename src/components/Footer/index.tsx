@@ -6,7 +6,7 @@ import FooterStyles from './styles';
 
 export const Footer = () => {
   return (
-    <FooterStyles>
+    <FooterStyles className="mt-2">
       <Header />
       <Row>
         <Col xs={{ span: 24 }}>

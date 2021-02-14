@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Hero, Promo, Banner, Collection, Footer } from '../../components';
+import { Container, Hero, Promo, Banner, Collection } from '../../components';
 import ClothingMW from '../../assets/banners/clothing-MW.png';
 import MenFootWear from '../../assets/banners/men-footwear.jpg';
 import MenWristWatch from '../../assets/banners/men-wristwatch.jpg';
@@ -8,7 +8,13 @@ export const Home: React.FC = () => {
   return (
     <Container title="iBuy | Home">
       <Hero />
-      <Promo />
+      <Promo 
+        headerText={{
+          title: "Latest Promo Of The Week",
+          subTitle: "Up to 70% off on sales"
+        }}
+        showTimer={true}
+      />
       <Banner image={ClothingMW} />
       <Collection />
       <Banner image={ClothingMW} />
@@ -17,7 +23,6 @@ export const Home: React.FC = () => {
       <Collection />
       <Banner image={MenFootWear} />
       <Collection />
-      <Footer />
     </Container>
   )
 }

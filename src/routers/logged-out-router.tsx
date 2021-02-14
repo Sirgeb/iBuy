@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { NotFound, CreateAccount, Login, Home, Products, Product } from "../pages";
+import { NotFound, CreateAccount, Login, Home, Products, Product, Shop } from "../pages";
 
 export const LoggedOutRouter = () => {
   return (
@@ -20,6 +20,9 @@ export const LoggedOutRouter = () => {
         </Route>
         <Route path="/product" exact>
           <Product />
+        </Route>
+        <Route path="/shop/:id?" exact>
+          <Shop />
         </Route>
         <Route>
           <NotFound />

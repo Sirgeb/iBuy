@@ -46,7 +46,7 @@ export const Item = ({ image, showTimer }: Props) => {
           <div className="sold">
             <span>Sold</span><Progress percent={30} />
           </div>
-          <Button type="primary" className="card-btn">Add To Cart</Button>
+          <Button className="card-btn">Add To Cart</Button>
         </div>
         <div className="discount-percent">75% OFF</div>
         <div className="wishlist">

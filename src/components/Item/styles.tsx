@@ -13,21 +13,6 @@ const ItemStyles = styled.div`
     margin-top: 10px;
   }
 
-  .card-btn {
-    width: 100%; 
-    background: none; 
-    color: var(--primary-color);
-  }
-
-  .card-btn:hover {
-    background: var(--primary-color);
-    color: var(--secondary-color);
-  }
-
-  .divider {
-    margin: 10px 0;
-  }
-
   .card-info {}
 
   .price-container {

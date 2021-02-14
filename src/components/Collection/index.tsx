@@ -4,7 +4,7 @@ import one from '../../assets/men/1.jpg';
 import two from '../../assets/men/2.jpg';
 import three from '../../assets/men/3.jpg';
 import four from '../../assets/men/4.jpg';
-import { Col, Row } from 'antd';
+import { Button, Col, Row } from 'antd';
 import { Item } from '..';
 
 export const Collection = () => {
@@ -21,6 +21,9 @@ export const Collection = () => {
           ))
         }
       </Row>
+      <div className="center">
+        <Button type="primary">Show All</Button>
+      </div>
     </CollectionStyles>
   )
 }

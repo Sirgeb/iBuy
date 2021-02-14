@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Row } from 'antd';
+import { Button, Col, Row } from 'antd';
 import PromoStyles from './styles';
 import one from '../../assets/women/1.jpg';
 import two from '../../assets/women/2.jpg';
@@ -8,24 +8,37 @@ import four from '../../assets/women/4.jpg';
 
 import { Item, Title } from '..';
 
-export const Promo = () => {
+type Props = {
+  headerText: {
+    title: string;
+    subTitle: string;
+  },
+  showTimer: boolean;
+}
+export const Promo = ({
+  headerText,
+  showTimer
+}: Props) => {
   const items = [one, two, three, four];
 
   return (
     <PromoStyles className="container-fluid">
       <Title 
-        title="Latest Promo Of The Week"
-        subTitle="Up to 70% off on sales"
+        title={headerText.title}
+        subTitle={headerText.subTitle}
       />
       <Row gutter={[16, 16]}>
         {
           items.map((item, index) => (
             <Col key={index} xs={{ span: 24 }} sm={{ span: 12 }} lg={{ span: 6 }}>
-              <Item image={item} showTimer={true}/>
+              <Item image={item} showTimer={showTimer}/>
             </Col>
           ))
         }
       </Row>
+      <div className="center">
+        <Button type="primary">Show All</Button>
+      </div>
     </PromoStyles>
   )
 }

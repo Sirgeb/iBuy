@@ -3,7 +3,6 @@ import userInterface from '../../../assets/user-interface.svg';
 
 const LoginStyles = styled.div`
   background: var(--secondary-color);
-  margin: 80px auto 16px auto;
 
   .form {
     height: 80vh;

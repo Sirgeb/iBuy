@@ -4,3 +4,4 @@ export * from './Login';
 export * from './NotFound';
 export * from './Products';
 export * from './Product';
+export * from './Shop';
