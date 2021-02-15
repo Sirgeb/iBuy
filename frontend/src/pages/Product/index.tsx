@@ -25,7 +25,7 @@ export const Product = () => {
           </Col>
           <Col span={12}>
             <div className="product-info">
-              <Title level={2}>3 Slim T-Shirt For Men</Title>
+              <Title level={2}>Slim T-Shirt For Men</Title>
               <Divider />
               <div className="single-product-price"><span>$100.00</span> <span>Save $20</span> <s>$125</s></div>
               <Divider />
@@ -48,7 +48,7 @@ export const Product = () => {
                     type="dashed" 
                     shape="circle" 
                     icon={<HeartOutlined />} 
-                  />&nbsp;<Text>Save for Later</Text>
+                  />&nbsp;<Text>Add To Wishlist</Text>
                 </div>
                 <div>
                   <Button 

@@ -38,6 +38,10 @@ const MainHeaderStyles = styled.div`
     flex: 2;
   }
 
+  /* .right-bar ul {
+    width: 100%;
+  } */
+
   .menu-button {
     margin-left: 10px;
   }

@@ -95,6 +95,10 @@ body {
   color: var(--secondary-color);
 }
 
+.min-height {
+  min-height: 80vh;
+}
+
 .divider {
   margin: 10px 0;
 }

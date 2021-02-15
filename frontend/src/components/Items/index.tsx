@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { Col, List, Row } from 'antd';
-import { Item, Filters, ShopDetails } from '..';
+import { Item, Filters, ShopDetails, WishListDetails } from '..';
 import one from '../../assets/women/1.jpg';
 
 export const Items = () => {
@@ -15,6 +15,9 @@ export const Items = () => {
         {
           pathname === '/shop' ? (
             <ShopDetails />
+          ) : 
+          pathname === '/wishlist' ? (
+            <WishListDetails />
           ) : (
             <Filters/>
           )

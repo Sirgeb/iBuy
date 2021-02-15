@@ -1,7 +1,7 @@
 import React from 'react';
 import { Input, Button, Menu, Badge } from 'antd';
 import { Link } from 'react-router-dom';
-import { SearchOutlined, UserOutlined, LogoutOutlined, ProfileOutlined, ShoppingCartOutlined, HeartOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
+import { SearchOutlined, UserOutlined, LogoutOutlined, ProfileOutlined, ShoppingCartOutlined, HeartOutlined, MenuUnfoldOutlined, GiftOutlined } from '@ant-design/icons';
 import Logo from '../../assets/logo.svg';
 import MainHeaderStyles from './styles';
 import MobileMenu from './MobileMenu';
@@ -18,20 +18,33 @@ export const MainHeader = () => {
     setVisible(false);
   };
 
-  const loggedIn = false;
+  const loggedIn = true;
 
   const account = loggedIn ? (
     <SubMenu
       key="SubMenu"
-      title="Account"
+      title="My Account"
       icon={<UserOutlined />}
     >
-      <Menu.Item key="setting:1"><ProfileOutlined />Profile</Menu.Item>
+      <Menu.Item key="wishlist" 
+        icon={
+          <>
+            <Badge count={2} showZero />&nbsp;
+            <HeartOutlined />
+          </>
+        }
+        >
+         <Link to="/wishlist">My Wishlist</Link>
+      </Menu.Item>
+      <Menu.Item key="orders" icon={ <GiftOutlined className="icon"/>}>
+      <Link to="/orders">My Orders</Link>
+      </Menu.Item>
+      <Menu.Item key="setting:1"><ProfileOutlined />My Profile</Menu.Item>
       <Menu.Item key="setting:2"><LogoutOutlined />Log out</Menu.Item>
     </SubMenu>
   ) : (
     <Menu.Item key="mail" icon={<UserOutlined />}>
-      <Link to="/login">Login</Link>
+      <Link to="/login">Log In</Link>
     </Menu.Item>
   )
 
@@ -67,17 +80,7 @@ export const MainHeader = () => {
               </>
             }
           >
-            Cart
-          </Menu.Item>
-          <Menu.Item key="wishlist" 
-            icon={
-              <>
-                <Badge count={2} showZero />&nbsp;
-                <HeartOutlined />
-              </>
-            }
-          >
-            Wishlist
+            <Link to="/cart">Cart</Link>
           </Menu.Item>
           {account}
         </Menu>

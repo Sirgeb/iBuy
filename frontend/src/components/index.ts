@@ -15,3 +15,4 @@ export * from './Filters';
 export * from './Title';
 export * from './BreadCrumb';
 export * from './ShopDetails';
+export * from './WishListDetails';

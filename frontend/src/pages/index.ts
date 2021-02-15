@@ -5,3 +5,5 @@ export * from './NotFound';
 export * from './Products';
 export * from './Product';
 export * from './Shop';
+export * from './Wishlist';
+export * from './Orders';
