@@ -14,11 +14,13 @@ import { UploadsModule } from './uploads/uploads.module';
 import { PaymentsModule } from './payments/payments.module';
 import { ShopsModule } from './shops/shops.module';
 import { Shop } from './shops/entities/shop.entity';
-import { CartItem } from './users/entities/cartItem.entity';
-import { WishListItem } from './users/entities/wishlistItem.entity';
 import { Item } from './shops/entities/Item.entity';
 import { Order } from './orders/entities/order.entity';
 import { OrderItem } from './orders/entities/orderItem.entity';
+import { WishlistModule } from './wishlist/wishlist.module';
+import { CartModule } from './cart/cart.module';
+import { CartItem } from './cart/entities/cartItem.entity';
+import { WishListItem } from './wishlist/entities/wishlistItem.entity';
 
 @Module({
   imports: [
@@ -40,9 +42,12 @@ import { OrderItem } from './orders/entities/orderItem.entity';
       })
     }),
     TypeOrmModule.forRoot({
-      type: 'mysql',
+      type: 'postgres',
       url: process.env.DATABASE_URL,
       synchronize: process.env.NODE_ENV !== 'production',
+      ssl : {
+        rejectUnauthorized: false
+      },
       logging:
         process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'test',
       entities: [
@@ -86,7 +91,9 @@ import { OrderItem } from './orders/entities/orderItem.entity';
       s_client_id: process.env.S_CLIENT_ID,
       s_secret_key: process.env.S_SECRET_KEY
     }),
-    ShopsModule
+    ShopsModule,
+    WishlistModule,
+    CartModule
   ],
   controllers: [],
   providers: [],

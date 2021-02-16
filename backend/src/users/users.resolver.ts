@@ -6,7 +6,9 @@ import { UsersService } from './users.service';
 
 @Resolver()
 export class UsersResolver {
-  constructor(private readonly usersService: UsersService){}
+  constructor(
+    private readonly usersService: UsersService
+  ){}
 
   @Query(returns => User)
   @Role(['Any'])
@@ -15,4 +17,6 @@ export class UsersResolver {
   ): User {
     return authUser;
   }
+
+  
 }

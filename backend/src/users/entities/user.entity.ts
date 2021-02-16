@@ -3,10 +3,10 @@ import { IsBoolean, IsEnum, IsString } from "class-validator";
 import { BeforeInsert, BeforeUpdate, Column, Entity, OneToMany } from "typeorm";
 import bcrypt from 'bcrypt';
 import { CoreEntity } from "src/common/entities/core.entity";
-import { CartItem } from "./cartItem.entity";
-import { WishListItem } from "./wishlistItem.entity";
 import { Shop } from "src/shops/entities/shop.entity";
 import { Order } from "src/orders/entities/order.entity";
+import { WishListItem } from "src/wishlist/entities/wishlistItem.entity";
+import { CartItem } from "src/cart/entities/cartItem.entity";
 
 export enum UserRole {
   Buyer = 'Buyer',
@@ -30,7 +30,7 @@ export class User extends CoreEntity {
   @IsBoolean()
   verifiedEmail: boolean;
 
-  @Column()
+  @Column({ select: false })
   @Field(type => String)
   @IsString()
   password: string;
@@ -40,11 +40,11 @@ export class User extends CoreEntity {
   @IsEnum(UserRole)
   role: UserRole;
 
-  @OneToMany(type => CartItem, CartItem => CartItem.user)
+  @OneToMany(type => CartItem, cartItem => cartItem.user)
   @Field(type => [CartItem])
   cart: CartItem[]
 
-  @OneToMany(type => WishListItem, wishListItem => wishListItem.user)
+  @OneToMany(type => WishListItem, wishlistItem => wishlistItem.user)
   @Field(type => [WishListItem])
   wishlist: WishListItem[]
 

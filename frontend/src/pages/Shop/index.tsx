@@ -1,4 +1,3 @@
-import { Footer } from 'antd/lib/layout/layout';
 import React from 'react';
 import { Items, Container, BreadCrumb, ItemsPagination } from '../../components';
 

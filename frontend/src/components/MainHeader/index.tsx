@@ -18,7 +18,7 @@ export const MainHeader = () => {
     setVisible(false);
   };
 
-  const loggedIn = true;
+  const loggedIn = false;
 
   const account = loggedIn ? (
     <SubMenu
