@@ -23,19 +23,8 @@ export const MainHeader = () => {
   const account = loggedIn ? (
     <SubMenu
       key="SubMenu"
-      title="My Account"
       icon={<UserOutlined />}
     >
-      <Menu.Item key="wishlist" 
-        icon={
-          <>
-            <Badge count={2} showZero />&nbsp;
-            <HeartOutlined />
-          </>
-        }
-        >
-         <Link to="/wishlist">My Wishlist</Link>
-      </Menu.Item>
       <Menu.Item key="orders" icon={ <GiftOutlined className="icon"/>}>
       <Link to="/orders">My Orders</Link>
       </Menu.Item>
@@ -44,7 +33,7 @@ export const MainHeader = () => {
     </SubMenu>
   ) : (
     <Menu.Item key="mail" icon={<UserOutlined />}>
-      <Link to="/login">Log In</Link>
+      <Link to="/login">Login </Link>
     </Menu.Item>
   )
 
@@ -81,6 +70,16 @@ export const MainHeader = () => {
             }
           >
             <Link to="/cart">Cart</Link>
+          </Menu.Item>
+          <Menu.Item key="wishlist" 
+            icon={
+              <>
+                <Badge count={2} showZero />&nbsp;
+                <HeartOutlined />
+              </>
+            }
+            >
+            <Link to="/wishlist">Wishlist</Link>
           </Menu.Item>
           {account}
         </Menu>

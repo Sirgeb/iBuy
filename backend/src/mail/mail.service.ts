@@ -28,9 +28,9 @@ export class MailService {
     return this.mailGunClient(emailData);
   };
   
-  sendVerificationEmail(fullName: string, key: string) {
-    const emailSubject = `Hello! ${fullName}, please verify your email`;
-    const emailBody = `Verify your email by clicking <a href="http://nuber.com/verification/${key}/">here</a>`;
+  sendVerificationEmail(username: string, key: string) {
+    const emailSubject = `Hello! ${username}, please verify your email`;
+    const emailBody = `Verify your email by clicking <a href="http://localhost:3000/verification/${key}/">here</a>`;
     return this.sendEmail(emailSubject, emailBody);
   };
 }

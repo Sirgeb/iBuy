@@ -13,6 +13,10 @@ const MainHeaderStyles = styled.div`
     margin-right: 10px;
   }
 
+  .icon {
+    color: var(--black)
+  }
+
   .logo img {
     margin-bottom: 10px;
   }

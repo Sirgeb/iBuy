@@ -7,6 +7,7 @@ import { Shop } from "src/shops/entities/shop.entity";
 import { Order } from "src/orders/entities/order.entity";
 import { WishListItem } from "src/wishlist/entities/wishlistItem.entity";
 import { CartItem } from "src/cart/entities/cartItem.entity";
+import { InternalServerErrorException } from "@nestjs/common";
 
 export enum UserRole {
   Buyer = 'Buyer',
@@ -23,12 +24,17 @@ export class User extends CoreEntity {
   @Column()
   @Field(type => String)
   @IsString()
+  username: string;
+
+  @Column()
+  @Field(type => String)
+  @IsString()
   email: string;
 
   @Column({ default: false })
   @Field(type => Boolean)
   @IsBoolean()
-  verifiedEmail: boolean;
+  verified: boolean;
 
   @Column({ select: false })
   @Field(type => String)
@@ -62,14 +68,24 @@ export class User extends CoreEntity {
 
   @BeforeInsert()
   @BeforeUpdate()
-  async savePassword(): Promise<void> {
+  async hashPassword(): Promise<void> {
     if (this.password) {
-      const hashedPassword = await this.hashPassword(this.password);
-      this.password = hashedPassword;
+      try {
+        this.password = await bcrypt.hash(this.password, 10);
+      } catch (e) {
+        console.log(e);
+        throw new InternalServerErrorException();
+      }
     }
   }
 
-  async hashPassword(password: string): Promise<string> {
-    return bcrypt.hash(password, 10);
+  async checkPassword(aPassword: string): Promise<boolean> {
+    try {
+      const ok = await bcrypt.compare(aPassword, this.password);
+      return ok;
+    } catch (e) {
+      console.log(e);
+      throw new InternalServerErrorException();
+    }
   }
 }
