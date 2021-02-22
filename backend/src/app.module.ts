@@ -2,25 +2,19 @@ import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import Joi from 'joi';
-import { User } from './users/entities/user.entity';
+import { getMetadataArgsStorage } from 'typeorm';
 import { CommonModule } from './common/common.module';
 import { UsersModule } from './users/users.module';
 import { ConfigModule } from '@nestjs/config';
-import { Verification } from './users/entities/verification.entity';
 import { MailModule } from './mail/mail.module';
 import { JwtModule } from './jwt/jwt.module';
 import { AuthModule } from './auth/auth.module';
 import { UploadsModule } from './uploads/uploads.module';
 import { PaymentsModule } from './payments/payments.module';
 import { ShopsModule } from './shops/shops.module';
-import { Shop } from './shops/entities/shop.entity';
-import { Item } from './shops/entities/Item.entity';
-import { Order } from './orders/entities/order.entity';
-import { OrderItem } from './orders/entities/orderItem.entity';
 import { WishlistModule } from './wishlist/wishlist.module';
 import { CartModule } from './cart/cart.module';
-import { CartItem } from './cart/entities/cartItem.entity';
-import { WishListItem } from './wishlist/entities/wishlistItem.entity';
+import { ItemsModule } from './items/items.module';
 
 @Module({
   imports: [
@@ -50,16 +44,7 @@ import { WishListItem } from './wishlist/entities/wishlistItem.entity';
       },
       logging:
         process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'test',
-      entities: [
-        User,
-        Verification,
-        Shop,
-        CartItem,
-        WishListItem,
-        Item,
-        Order,
-        OrderItem
-      ],
+      entities: getMetadataArgsStorage().tables.map(tbl => tbl.target)
     }), 
     GraphQLModule.forRoot({
       playground: process.env.NODE_ENV !== 'production', 
@@ -93,7 +78,8 @@ import { WishListItem } from './wishlist/entities/wishlistItem.entity';
     }),
     ShopsModule,
     WishlistModule,
-    CartModule
+    CartModule,
+    ItemsModule
   ],
   controllers: [],
   providers: [],

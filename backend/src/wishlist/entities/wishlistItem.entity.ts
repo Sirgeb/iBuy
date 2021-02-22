@@ -1,6 +1,6 @@
 import { Field, InputType, ObjectType } from "@nestjs/graphql";
 import { CoreEntity } from "src/common/entities/core.entity";
-import { Item } from "src/shops/entities/Item.entity";
+import { Item } from "src/items/entities/item.entity";
 import { User } from "src/users/entities/user.entity";
 import { Entity, JoinColumn, ManyToOne, OneToOne, RelationId } from "typeorm";
 

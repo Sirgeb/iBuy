@@ -1,12 +1,14 @@
 import { Field, InputType, ObjectType, registerEnumType } from "@nestjs/graphql";
 import { IsEnum, IsNumber, IsString } from "class-validator";
 import { CoreEntity } from "src/common/entities/core.entity";
-import { Column, Entity } from "typeorm";
+import { Shop } from "src/shops/entities/shop.entity";
+import { Column, Entity, ManyToOne, RelationId } from "typeorm";
 
 export enum Brand {
-  Buyer = 'Buyer',
-  Seller = 'Seller',
-  Delivery = 'Delivery'
+  Adidas = 'Adidas',
+  Reebok = 'Reebok',
+  Nike = 'Nike',
+  Fila = 'Fila'
 }
 
 export enum Category {
@@ -17,10 +19,16 @@ export enum Category {
   Device = 'Device'
 }
 
+export enum FilterOption {
+  Highest = 'DESC',
+  Lowest = 'ASC'
+}
+
 registerEnumType(Brand, { name: 'Brand' });
 registerEnumType(Category, { name: 'Category' });
+registerEnumType(FilterOption, { name: 'FilterOption' });
 
-@InputType("ItemInputType", { isAbstract: true })
+@InputType("ItemsInputType", { isAbstract: true })
 @ObjectType()
 @Entity()
 export class Item extends CoreEntity {
@@ -64,8 +72,15 @@ export class Item extends CoreEntity {
   @IsNumber()
   countInStock: number;
 
-  @Column()
-  @Field(type => Number)
+  @Column({ default: 0 })
+  @Field(type => Number, { defaultValue: 0 })
   @IsNumber()
   sold: number;
+
+  @ManyToOne(type => Shop, shop => shop.items, { onDelete: 'CASCADE', eager: true })
+  @Field(type => Shop)
+  shop: Shop
+
+  @RelationId((item: Item) => item.shop)
+  shopId: number;
 }
